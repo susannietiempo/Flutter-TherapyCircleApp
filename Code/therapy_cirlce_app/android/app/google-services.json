@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "147379202868",
+    "firebase_url": "https://therapycircle-8c84f.firebaseio.com",
+    "project_id": "therapycircle-8c84f",
+    "storage_bucket": "therapycircle-8c84f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:147379202868:android:d4560b3b07ede6c29ad361",
+        "android_client_info": {
+          "package_name": "com.grumpyunicorn.therapy_cirlce_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "147379202868-tjol1sghrnbj8jdok3eompjb1allfqq8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDI3MIE8n8hNzGqgKWegbelziHJBD3wex0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "147379202868-tjol1sghrnbj8jdok3eompjb1allfqq8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
