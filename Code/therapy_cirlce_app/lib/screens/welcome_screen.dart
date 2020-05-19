@@ -44,11 +44,6 @@ class _WelcomeScreenState extends State<WelcomeScreen>
         padding: const EdgeInsets.only(top: 20.0),
         child: Stack(children: <Widget>[
           Image.asset('images/welcomebg.gif'),
-
-          // Image.network(
-          //   'https://drive.google.com/uc?export=view&id=1pq4uOmWO5ejBctfX9kNCp29Ic0CBitW5',
-          //   fit: BoxFit.fill,
-          // ),
           Padding(
             padding: EdgeInsets.only(top: 24.0),
             child: Column(
@@ -69,7 +64,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                   borderColor: Color(0xFF46578f),
                   textColor: Color(0xFFFFFFFF),
                   onPressed: () {
-                    Navigator.pushNamed(context, OnboardingScreen.id);
+                    Navigator.pushNamed(context, RegistrationScreen.id);
                   },
                 ),
                 RoundedButton(

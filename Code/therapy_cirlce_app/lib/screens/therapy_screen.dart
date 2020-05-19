@@ -7,6 +7,7 @@ import 'package:therapy_cirlce_app/constants.dart';
 
 class TherapyScreen extends StatefulWidget {
   static const String id = 'therapy_screen';
+  final TextStyle appBarText = GoogleFonts.ptSans(fontSize: 20, fontWeight: FontWeight.bold);
 
   @override
   _TherapyScreenState createState() => _TherapyScreenState();
@@ -21,8 +22,7 @@ class _TherapyScreenState extends State<TherapyScreen> {
           title: Center(
             child: Text(
               'My Therapy Circle',
-              style:
-                  GoogleFonts.ptSans(fontSize: 20, fontWeight: FontWeight.bold),
+              style: kappBarText,
             ),
           ),
         ),
