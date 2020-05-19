@@ -136,12 +136,12 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                       showSpinner = true;
                     });
                     try {
-                      final newUser =
-                          await _auth.createUserWithEmailAndPassword(
-                              email: email, password: password);
-                      if (newUser != null) {
+                      // final newUser =
+                      //     await _auth.createUserWithEmailAndPassword(
+                      //         email: email, password: password);
+                      // if (newUser != null) {
                         Navigator.pushNamed(context, OnboardingScreen.id);
-                      }
+                      // }
 
                       setState(() {
                         showSpinner = false;

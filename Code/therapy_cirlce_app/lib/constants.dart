@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 
 const kSendButtonTextStyle = TextStyle(
-  color: Color(0xff512260),
+  color: Colors.orange,
   fontWeight: FontWeight.bold,
   fontSize: 18.0,
 );
@@ -45,6 +45,6 @@ const kLabelTextStyle = TextStyle(
 const kGradient = LinearGradient(
     begin: Alignment.topRight,
     end: Alignment.bottomLeft,
-    colors: [Color(0xFF47548e), Color(0xff9bacfd), Color(0xFF47548e)]);
+    colors: [Colors.blue, Color(0xff9bacfd), Colors.lightBlueAccent]);
 
   final TextStyle kappBarText = GoogleFonts.ptSans(fontSize: 20, fontWeight: FontWeight.bold);

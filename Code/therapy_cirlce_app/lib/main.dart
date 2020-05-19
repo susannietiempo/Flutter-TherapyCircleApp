@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:therapy_cirlce_app/screens/gallery_screen.dart';
+import 'package:therapy_cirlce_app/screens/location_screen.dart';
 import 'package:therapy_cirlce_app/screens/therapy_screen.dart';
 import 'screens/calendar.dart';
 import 'screens/home_screen.dart';
@@ -34,6 +36,10 @@ class TherapyCircle extends StatelessWidget {
           ToDoScreen.id: (context) => ToDoScreen(),
           CalendarScreen.id: (context) => CalendarScreen(),
           TherapyScreen.id: (context) => TherapyScreen(),
+          TrackerScreen.id: (context) => TrackerScreen(),
+          GalleryScreen.id: (context) => GalleryScreen(),
+
+
         },
       ),
     );

@@ -2,25 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:therapy_cirlce_app/constants.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class CalendarScreen extends StatefulWidget {
-  static const String id = 'calendar_screen';
+class GalleryScreen extends StatefulWidget {
+  static const String id = 'gallery_screen';
 
   @override
-  _CalendarScreenState createState() => _CalendarScreenState();
+  _GalleryScreenState createState() => _GalleryScreenState();
 }
 
-class _CalendarScreenState extends State<CalendarScreen> {
+class _GalleryScreenState extends State<GalleryScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.green,
+        backgroundColor: Colors.indigo,
         actions: <Widget>[
           Icon(FontAwesomeIcons.ellipsisV),
         ],
         title: Center(
           child: Text(
-            'My Therapy Calendar',
+            'Gallery',
             style: kappBarText,
           ),
         ),
@@ -36,14 +36,14 @@ class _CalendarScreenState extends State<CalendarScreen> {
             Container(
               child: Center(
                 child: Text(
-                  'May',
+                  'Therapy Moments',
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
                 ),
               ),
             ),
             //THIS IS A PLACE HOLDER ONLY
             //TO DO: Implement Calendar functionality
-            Expanded(child: Image.asset('images/calendar.jpg'),)
+            Expanded(child: Image.asset('images/gallery.jpg'),)
           ],
         ),
       ),

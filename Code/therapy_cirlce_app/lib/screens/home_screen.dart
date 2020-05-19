@@ -5,6 +5,8 @@ import 'package:therapy_cirlce_app/components/reusable_icon_card.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:therapy_cirlce_app/constants.dart';
 import 'package:therapy_cirlce_app/screens/calendar.dart';
+import 'package:therapy_cirlce_app/screens/gallery_screen.dart';
+import 'package:therapy_cirlce_app/screens/location_screen.dart';
 import 'package:therapy_cirlce_app/screens/messaging_screen.dart';
 import 'package:therapy_cirlce_app/screens/therapy_screen.dart';
 import 'package:therapy_cirlce_app/screens/todo_screen.dart';
@@ -40,9 +42,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       Text(
                         'My Circle',
                         style: GoogleFonts.ptSans(
-                            fontSize: 20, fontWeight: FontWeight.bold),
+                            fontSize: 25, fontWeight: FontWeight.bold, color: Color(0xFF46578f)),
                       ),
-                      Icon(FontAwesomeIcons.ellipsisV),
+                      Icon(FontAwesomeIcons.ellipsisV, color: Color(0xFF46578f)),
                     ]),
               ),
             ),
@@ -143,7 +145,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: ReusableCard(
                     onPress: () {
                       setState(() {
-                        //TO DO: Add gallery
+                        Navigator.pushNamed(context, GalleryScreen.id);
                       });
                     },
                     colour: Colors.white,
@@ -158,7 +160,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: ReusableCard(
                     onPress: () {
                       setState(() {
-                        //TO DO: Add gallery
+                           Navigator.pushNamed(context, TrackerScreen.id);
                       });
                     },
                     colour: Colors.white,
