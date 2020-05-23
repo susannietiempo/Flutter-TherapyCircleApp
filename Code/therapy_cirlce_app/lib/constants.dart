@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 
+const Color kLightGray = Color(0XFFadadad);
+
 const kSendButtonTextStyle = TextStyle(
   color: Colors.orange,
   fontWeight: FontWeight.bold,
@@ -47,4 +49,11 @@ const kGradient = LinearGradient(
     end: Alignment.bottomLeft,
     colors: [Colors.blue, Color(0xff9bacfd), Colors.lightBlueAccent]);
 
-  final TextStyle kappBarText = GoogleFonts.ptSans(fontSize: 20, fontWeight: FontWeight.bold);
+final TextStyle kappBarText = GoogleFonts.ptSans(fontSize: 20, fontWeight: FontWeight.bold);
+
+final TextStyle kHeadingText = GoogleFonts.ptSansNarrow(
+    fontSize: 25,      
+    fontWeight: FontWeight.bold,
+    color: Color(0xFF545454),
+    );
+

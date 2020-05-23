@@ -43,7 +43,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
       body: Padding(
         padding: const EdgeInsets.only(top: 20.0),
         child: Stack(children: <Widget>[
-          Image.asset('images/welcomebg.gif'),
+          Image.asset('images/welcomebg.png'),
           Padding(
             padding: EdgeInsets.only(top: 24.0),
             child: Column(

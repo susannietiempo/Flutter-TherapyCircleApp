@@ -5,6 +5,7 @@ import 'package:therapy_cirlce_app/constants.dart';
 import 'package:therapy_cirlce_app/components/rounded_button.dart';
 import 'package:therapy_cirlce_app/screens/home_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:therapy_cirlce_app/components/rounded_textfield.dart';
 
 class LoginScreen extends StatefulWidget {
   static const String id = 'login_screen';
@@ -33,46 +34,25 @@ class _LoginScreenState extends State<LoginScreen> {
               children: <Widget>[
                 Text(
                   'Log in',
-                  style: GoogleFonts.ptSansNarrow(
-                    fontSize: 25,
-                    fontWeight: FontWeight.bold,
-                    color: Color(0xFF545454),
-                  ),
+                  style: kHeadingText,
                 ),
                 SizedBox(
                   height: 48.0,
                 ),
-                TextField(
-                  keyboardType: TextInputType.emailAddress,
-                  cursorColor: Color(0xFF545454),
-                  style: GoogleFonts.ptSansNarrow(
-                      decoration: TextDecoration.none,
-                      fontSize: 16,
-                      color: Color(0xFF545454)),
-                  textAlign: TextAlign.start,
-                  onChanged: (value) {
-                    email = value;
-                  },
-                  decoration:
-                      kTextFieldDecoration.copyWith(hintText: 'email address'),
+                RoundedTextFieldState(
+                hint: 'email address',
+                color: Color(0x325271fe),
+                icon: Icon(Icons.email, color: Color(0xFFadadad),),
                 ),
                 SizedBox(
                   height: 25.0,
                 ),
-                TextField(
-                  obscureText: true,
-                  cursorColor: Color(0xFF545454),
-                  style: GoogleFonts.ptSansNarrow(
-                      decoration: TextDecoration.none,
-                      fontSize: 16,
-                      color: Color(0xFF545454)),
-                  textAlign: TextAlign.start,
-                  onChanged: (value) {
-                    password = value;
-                  },
-                  decoration: kTextFieldDecoration.copyWith(
-                      hintText: 'password', fillColor: Color(0x44bae6f8)),
-                ),
+               RoundedTextFieldState(
+                obsecure: true,
+                hint: 'password',
+                icon: Icon(Icons.lock, color: Color(0xFFadadad),),
+                color: Color(0x60e2d5c2),
+               ),
                 SizedBox(
                   height: 48.0,
                 ),
@@ -81,9 +61,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 RoundedButton(
                   title: 'Log In',
-                  colour: Color(0xFF46578f),
-                  borderColor: Color(0xFF46578f),
-                  textColor: Color(0XFF9bacfd),
+                  colour: Color(0xFF3b3a3a),
+                  borderColor: Color(0xFF3b3a3a),
+                  textColor: Color(0XFFadadad),
                   onPressed: () async {
                     setState(() {
                       showSpinner = true;

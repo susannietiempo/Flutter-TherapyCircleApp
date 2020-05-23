@@ -6,6 +6,7 @@ import 'package:therapy_cirlce_app/components/rounded_button.dart';
 import 'package:therapy_cirlce_app/screens/home_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:therapy_cirlce_app/screens/onboarding_screen.dart';
+import 'package:therapy_cirlce_app/components/rounded_textfield.dart';
 
 class RegistrationScreen extends StatefulWidget {
   static const String id = 'registration_screen';
@@ -15,7 +16,7 @@ class RegistrationScreen extends StatefulWidget {
 }
 
 class _RegistrationScreenState extends State<RegistrationScreen> {
-  final _auth = FirebaseAuth.instance;
+  final _authentication = FirebaseAuth.instance;
   bool showSpinner = false;
   String firstName;
   String lastName;
@@ -37,79 +38,58 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               children: <Widget>[
                 Text(
                   'Sign Up',
-                  style: GoogleFonts.ptSansNarrow(
-                      fontSize: 25,
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xFF545454)),
+                  style: kHeadingText,
                 ),
                 SizedBox(
                   height: 48.0,
                 ),
-                TextField(
-                  cursorColor: Color(0xFF545454),
-                  style: GoogleFonts.ptSansNarrow(
-                      decoration: TextDecoration.none,
-                      fontSize: 16,
-                      color: Color(0xFF545454)),
-                  textAlign: TextAlign.start,
-                  onChanged: (value) {
+                RoundedTextFieldState(
+                  hint: 'first name',
+                  color: Color(0x325271fe),
+                  icon: Icon(
+                    Icons.person,
+                    color: Color(0xFFadadad),
+                  ),
+                  onSaved: (value) {
                     firstName = value;
                   },
-                  decoration:
-                      kTextFieldDecoration.copyWith(hintText: 'First Name'),
                 ),
                 SizedBox(
                   height: 25.0,
                 ),
-                TextField(
-                  cursorColor: Color(0xFF545454),
-                  style: GoogleFonts.ptSansNarrow(
-                      decoration: TextDecoration.none,
-                      fontSize: 16,
-                      color: Color(0xFF545454)),
-                  textAlign: TextAlign.start,
-                  onChanged: (value) {
+                RoundedTextFieldState(
+                  hint: 'last name',
+                  color: Color(0x60e2d5c2),
+                  icon: Icon(
+                    Icons.person,
+                    color: Color(0xFFe2d5c2),
+                  ),
+                  onSaved: (value) {
                     lastName = value;
                   },
-                  decoration: kTextFieldDecoration.copyWith(
-                    hintText: 'Last Name',
-                    fillColor: Color(0x44bae6f8),
+                ),
+                SizedBox(
+                  height: 25.0,
+                ),
+                RoundedTextFieldState(
+                  hint: 'email address',
+                  color: Color(0x325271fe),
+                  icon: Icon(
+                    Icons.email,
+                    color: Color(0xFFadadad),
                   ),
                 ),
                 SizedBox(
                   height: 25.0,
                 ),
-                TextField(
-                  keyboardType: TextInputType.emailAddress,
-                  cursorColor: Color(0xFF545454),
-                  style: GoogleFonts.ptSansNarrow(
-                      decoration: TextDecoration.none,
-                      fontSize: 16,
-                      color: Color(0xFF545454)),
-                  textAlign: TextAlign.start,
-                  onChanged: (value) {
-                    email = value;
-                  },
-                  decoration:
-                      kTextFieldDecoration.copyWith(hintText: 'Email address'),
-                ),
-                SizedBox(
-                  height: 25.0,
-                ),
-                TextField(
-                  obscureText: true,
-                  cursorColor: Color(0xFF545454),
-                  style: GoogleFonts.ptSansNarrow(
-                      decoration: TextDecoration.none,
-                      fontSize: 16,
-                      color: Color(0xFF545454)),
-                  textAlign: TextAlign.start,
-                  onChanged: (value) {
-                    password = value;
-                  },
-                  decoration: kTextFieldDecoration.copyWith(
-                      hintText: 'Enter your password',
-                      fillColor: Color(0x44bae6f8)),
+                RoundedTextFieldState(
+                  obsecure: true,
+                  hint: 'password',
+                  icon: Icon(
+                    Icons.lock,
+                    color: Color(0xFFadadad),
+                  ),
+                  color: Color(0x60e2d5c2),
                 ),
                 SizedBox(
                   height: 30.0,
@@ -123,25 +103,25 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     wordSpacing: 1.5,
                   ),
                 ),
-                   SizedBox(
+                SizedBox(
                   height: 48.0,
                 ),
                 RoundedButton(
                   title: 'Sign Up',
-                  colour: Color(0xFF46578f),
-                  borderColor: Color(0xFF46578f),
-                  textColor: Color(0XFF9bacfd),
+                  colour: Color(0xFF3b3a3a),
+                  borderColor: Color(0xFF3b3a3a),
+                  textColor: Color(0XFFadadad),
                   onPressed: () async {
                     setState(() {
                       showSpinner = true;
                     });
                     try {
-                      // final newUser =
-                      //     await _auth.createUserWithEmailAndPassword(
-                      //         email: email, password: password);
-                      // if (newUser != null) {
+                      final newUser =
+                          await _authentication.createUserWithEmailAndPassword(
+                              email: email, password: password);
+                      if (newUser != null) {
                         Navigator.pushNamed(context, OnboardingScreen.id);
-                      // }
+                      }
 
                       setState(() {
                         showSpinner = false;
