@@ -51,7 +51,7 @@ class _MessagingScreen extends State<MessagingScreen> {
               }),
         ],
         title: Text('Messages',  style: kappBarText,),
-        backgroundColor: Colors.deepOrange,
+        backgroundColor: Color(0xff5271fe),
       ),
       body: SafeArea(
         child: Column(

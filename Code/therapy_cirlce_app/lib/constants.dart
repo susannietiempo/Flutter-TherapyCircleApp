@@ -49,7 +49,7 @@ const kGradient = LinearGradient(
     end: Alignment.bottomLeft,
     colors: [Colors.blue, Color(0xff9bacfd), Colors.lightBlueAccent]);
 
-final TextStyle kappBarText = GoogleFonts.ptSans(fontSize: 20, fontWeight: FontWeight.bold);
+final TextStyle kappBarText = GoogleFonts.ptSans(fontSize: 20, fontWeight: FontWeight.bold, color: Color(0xff5271fe));
 
 final TextStyle kHeadingText = GoogleFonts.ptSansNarrow(
     fontSize: 25,      

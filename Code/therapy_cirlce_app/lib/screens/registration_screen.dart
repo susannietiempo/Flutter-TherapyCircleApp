@@ -5,7 +5,7 @@ import 'package:therapy_cirlce_app/constants.dart';
 import 'package:therapy_cirlce_app/components/rounded_button.dart';
 import 'package:therapy_cirlce_app/screens/home_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:therapy_cirlce_app/screens/onboarding_screen.dart';
+import 'package:therapy_cirlce_app/screens/onboarding_screen_one.dart';
 import 'package:therapy_cirlce_app/components/rounded_textfield.dart';
 
 class RegistrationScreen extends StatefulWidget {
@@ -112,23 +112,24 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   borderColor: Color(0xFF3b3a3a),
                   textColor: Color(0XFFadadad),
                   onPressed: () async {
-                    setState(() {
-                      showSpinner = true;
-                    });
-                    try {
-                      final newUser =
-                          await _authentication.createUserWithEmailAndPassword(
-                              email: email, password: password);
-                      if (newUser != null) {
-                        Navigator.pushNamed(context, OnboardingScreen.id);
-                      }
+                        Navigator.pushNamed(context, OnboardingScreen1.id);
+                    // setState(() {
+                    //   showSpinner = true;
+                    // });
+                    // try {
+                    //   final newUser =
+                    //       await _authentication.createUserWithEmailAndPassword(
+                    //           email: email, password: password);
+                    //   if (newUser != null) {
+                    //     Navigator.pushNamed(context, OnboardingScreen1.id);
+                    //   }
 
-                      setState(() {
-                        showSpinner = false;
-                      });
-                    } catch (e) {
-                      print(e);
-                    }
+                    //   setState(() {
+                    //     showSpinner = false;
+                    //   });
+                    // } catch (e) {
+                    //   print(e);
+                    // }
                   },
                 ),
               ],

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:therapy_cirlce_app/components/rounded_button.dart';
-import 'home_screen.dart';
+import 'onboarding_screen_two.dart';
 
-class OnboardingScreen extends StatelessWidget {
-  static const String id = 'onboarding_screen';
+class OnboardingScreen1 extends StatelessWidget {
+  static const String id = 'onboarding_screen1';
 
   @override
   Widget build(BuildContext context) {
@@ -16,23 +16,26 @@ class OnboardingScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
+            Text(
+              'FOCUS ON HEALING',
+              style: GoogleFonts.fredokaOne(
+                letterSpacing: 6.0,
+                wordSpacing: 1.5,
+                fontSize: 25.5,
+                color: Color(0xFF040305),
+              ),
+              textAlign: TextAlign.center,
+            ),
+             SizedBox(
+              height: 50.0,
+            ),
             Image.asset(
-              'images/onboarding.png',
+              'images/onboardingfemale.png',
               width: 230,
               height: 230,
             ),
             SizedBox(
               height: 50.0,
-            ),
-            Text(
-              'FOCUS ON \nHEALING',
-              style: GoogleFonts.fredokaOne(
-                letterSpacing: 6.0,
-                wordSpacing: 1.5,
-                fontSize: 35.5,
-                color: Color(0xFF46578f),
-              ),
-              textAlign: TextAlign.center,
             ),
             SizedBox(
               height: 20.0,
@@ -53,14 +56,18 @@ class OnboardingScreen extends StatelessWidget {
             Container(
               margin: EdgeInsets.symmetric(horizontal: 35),
               child: RoundedButton(
-                title: 'Get Started',
-                colour: Color(0xFFbf4dad),
-                borderColor: Color(0xFFbf4dad),
+                title: 'Next',
+                colour: Color(0xFF3b3a3a),
+                borderColor: Color(0xFF3b3a3a),
                 textColor: Color(0XFFFFFFFF),
                 onPressed: () {
-                  Navigator.pushNamed(context, HomeScreen.id);
+                  Navigator.pushNamed(context, OnboardingScreen2.id);
                 },
               ),
+            ),
+             Image.asset(
+              'images/dots1.png',
+
             ),
           ],
         ),

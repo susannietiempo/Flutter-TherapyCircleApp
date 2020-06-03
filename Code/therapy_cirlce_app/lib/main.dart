@@ -8,14 +8,11 @@ import 'package:therapy_cirlce_app/screens/calendar.dart';
 import 'package:therapy_cirlce_app/screens/home_screen.dart';
 import 'package:therapy_cirlce_app/screens/login_screen.dart';
 import 'package:therapy_cirlce_app/screens/messaging_screen.dart';
-import 'package:therapy_cirlce_app/screens/onboarding_screen.dart';
+import 'package:therapy_cirlce_app/screens/onboarding_screen_one.dart';
+import 'package:therapy_cirlce_app/screens/onboarding_screen_two.dart';
 import 'package:therapy_cirlce_app/screens/registration_screen.dart';
 import 'package:therapy_cirlce_app/screens/todo_screen.dart';
 import 'package:therapy_cirlce_app/screens/welcome_screen.dart';
-
-
-
-
 
 
 
@@ -38,7 +35,8 @@ class TherapyCircle extends StatelessWidget {
           LoginScreen.id: (context) => LoginScreen(),
           RegistrationScreen.id: (context) => RegistrationScreen(),
           MessagingScreen.id: (context) => MessagingScreen(),
-          OnboardingScreen.id: (context) => OnboardingScreen(),
+          OnboardingScreen1.id: (context) => OnboardingScreen1(),
+          OnboardingScreen2.id: (context) => OnboardingScreen2(),
           HomeScreen.id: (context) => HomeScreen(),
           ToDoScreen.id: (context) => ToDoScreen(),
           CalendarScreen.id: (context) => CalendarScreen(),

@@ -22,160 +22,178 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SafeArea(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: <Widget>[
-          Expanded(
-            flex: 2,
-            child: Container(
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(80.0),
+          child: AppBar(
+            elevation: 4.0,
+            automaticallyImplyLeading: false,
+            flexibleSpace: SafeArea(
               child: Padding(
-                padding: const EdgeInsets.only(left: 12.0, right: 12.0),
+                padding: const EdgeInsets.only(top: 10.0, right: 10, left: 15),
                 child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      CircleAvatar(
-                        radius: 25,
-                        backgroundImage:
-                            ExactAssetImage('images/zach.jpg', scale: 1.0),
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    Container(
+                      child: CircleAvatar(
+                          radius: 25,
+                          backgroundImage:
+                              ExactAssetImage('images/zach.jpg', scale: 1.0),
+                        ),
+                    ),
+                    Expanded(
+                                          child: Center(
+                        child: Text(
+                          'My Circle',
+                          style: GoogleFonts.ptSans(
+                            fontSize: 25,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
                       ),
-                      Text(
-                        'My Circle',
-                        style: GoogleFonts.ptSans(
-                            fontSize: 25, fontWeight: FontWeight.bold, color: Color(0xFF46578f)),
-                      ),
-                      Icon(FontAwesomeIcons.ellipsisV, color: Color(0xFF46578f)),
-                    ]),
+                    ),
+                    IconButton(
+                        icon: Icon(FontAwesomeIcons.cog, color: Colors.white),
+                        onPressed: () {
+                          Navigator.pop(context);
+                        }),
+                  ],
+                ),
               ),
             ),
+            backgroundColor: Color(0xff5271fe),
           ),
-          Expanded(
-            flex: 5,
-            child: ReusableCard(
-                gradient: kGradient,
-                onPress: () {
-                  setState(() {});
-                },
-                colour: Colors.white,
-                cardChild: Image.asset('images/homeimage.png')),
-          ),
-          Expanded(
-            flex: 3,
-            child: Row(
-              children: <Widget>[
-                Expanded(
-                  child: ReusableCard(
+        ),
+        body: SafeArea(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              Expanded(
+                flex: 5,
+                child: ReusableCard(
                     onPress: () {
-                      setState(() {
-                        Navigator.pushNamed(context, TherapyScreen.id);
-                      });
+                      setState(() {});
                     },
-                    colour: Colors.white,
-                    cardChild: ReusableIconCard(
-                      mainColor: Color(0xfffd0000),
-                      secColor: Color(0xffef3a5d),
-                      icon: FontAwesomeIcons.puzzlePiece,
-                      text: 'Therapy',
+                    colour: Color(0xfff0dfd1),
+                    cardChild: Image.asset('images/homeimage.png')),
+              ),
+              Expanded(
+                flex: 3,
+                child: Row(
+                  children: <Widget>[
+                    Expanded(
+                      child: ReusableCard(
+                        onPress: () {
+                          setState(() {
+                            Navigator.pushNamed(context, TherapyScreen.id);
+                          });
+                        },
+                        colour: Colors.white,
+                        cardChild: ReusableIconCard(
+                          mainColor: Color(0xff5271fe),
+                          secColor: Color(0xff5271fe),
+                          icon: FontAwesomeIcons.puzzlePiece,
+                          text: 'Therapy',
+                        ),
+                      ),
                     ),
-                  ),
-                ),
-                Expanded(
-                  child: ReusableCard(
-                    onPress: () {
-                      setState(() {
-                        Navigator.pushNamed(context, MessagingScreen.id);
-                      });
-                    },
-                    colour: Colors.white,
-                    cardChild: ReusableIconCard(
-                      mainColor: Colors.orange,
-                      secColor: Colors.deepOrange,
-                      icon: FontAwesomeIcons.comments,
-                      text: 'Messages',
+                    Expanded(
+                      child: ReusableCard(
+                        onPress: () {
+                          setState(() {
+                            Navigator.pushNamed(context, MessagingScreen.id);
+                          });
+                        },
+                        colour: Colors.white,
+                        cardChild: ReusableIconCard(
+                          mainColor: Color(0xff545454),
+                          secColor: Color(0xff545454),
+                          icon: FontAwesomeIcons.comments,
+                          text: 'Messages',
+                        ),
+                      ),
                     ),
-                  ),
+                  ],
                 ),
-              ],
-            ),
-          ),
-          Expanded(
-            flex: 3,
-            child: Row(
-              children: <Widget>[
-                Expanded(
-                  child: ReusableCard(
-                    onPress: () {
-                      setState(() {
-                        Navigator.pushNamed(context, ToDoScreen.id);
-                      });
-                    },
-                    colour: Colors.white,
-                    cardChild: ReusableIconCard(
-                      mainColor: Color(0xfffad02c),
-                      secColor: Color(0xffffde32),
-                      icon: FontAwesomeIcons.tasks,
-                      text: 'To Do\'s',
+              ),
+              Expanded(
+                flex: 3,
+                child: Row(
+                  children: <Widget>[
+                    Expanded(
+                      child: ReusableCard(
+                        onPress: () {
+                          setState(() {
+                            Navigator.pushNamed(context, ToDoScreen.id);
+                          });
+                        },
+                        colour: Colors.white,
+                        cardChild: ReusableIconCard(
+                          mainColor: Color(0xff545454),
+                          secColor: Color(0xff545454),
+                          icon: FontAwesomeIcons.tasks,
+                          text: 'To Do\'s',
+                        ),
+                      ),
                     ),
-                  ),
-                ),
-                Expanded(
-                  child: ReusableCard(
-                    onPress: () {
-                      setState(() {
-                        Navigator.pushNamed(context, CalendarScreen.id);
-                      });
-                    },
-                    colour: Colors.white,
-                    cardChild: ReusableIconCard(
-                      mainColor: Color(0xff6e9277),
-                      secColor: Color(0xff3d550c),
-                      icon: FontAwesomeIcons.calendarAlt,
-                      text: 'Calendar',
+                    Expanded(
+                      child: ReusableCard(
+                        onPress: () {
+                          setState(() {
+                            Navigator.pushNamed(context, CalendarScreen.id);
+                          });
+                        },
+                        colour: Colors.white,
+                        cardChild: ReusableIconCard(
+                          mainColor: Color(0xff5271fe),
+                          secColor: Color(0xff5271fe),
+                          icon: FontAwesomeIcons.calendarAlt,
+                          text: 'Calendar',
+                        ),
+                      ),
                     ),
-                  ),
+                  ],
                 ),
-              ],
-            ),
+              ),
+              Expanded(
+                flex: 3,
+                child: Row(
+                  children: <Widget>[
+                    Expanded(
+                      child: ReusableCard(
+                        onPress: () {
+                          setState(() {
+                            Navigator.pushNamed(context, GalleryScreen.id);
+                          });
+                        },
+                        colour: Colors.white,
+                        cardChild: ReusableIconCard(
+                            mainColor: Color(0xff5271fe),
+                            secColor: Color(0xff5271fe),
+                            icon: FontAwesomeIcons.camera,
+                            text: 'Gallery'),
+                      ),
+                    ),
+                    Expanded(
+                      child: ReusableCard(
+                        onPress: () {
+                          setState(() {
+                            Navigator.pushNamed(context, TrackerScreen.id);
+                          });
+                        },
+                        colour: Colors.white,
+                        cardChild: ReusableIconCard(
+                            mainColor: Color(0xff545454),
+                            secColor: Color(0xff545454),
+                            icon: FontAwesomeIcons.mapMarkerAlt,
+                            text: 'Tracker'),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
-          Expanded(
-            flex: 3,
-            child: Row(
-              children: <Widget>[
-                Expanded(
-                  child: ReusableCard(
-                    onPress: () {
-                      setState(() {
-                        Navigator.pushNamed(context, GalleryScreen.id);
-                      });
-                    },
-                    colour: Colors.white,
-                    cardChild: ReusableIconCard(
-                        mainColor: Colors.indigo,
-                        secColor: Colors.indigoAccent,
-                        icon: FontAwesomeIcons.camera,
-                        text: 'Gallery'),
-                  ),
-                ),
-                Expanded(
-                  child: ReusableCard(
-                    onPress: () {
-                      setState(() {
-                           Navigator.pushNamed(context, TrackerScreen.id);
-                      });
-                    },
-                    colour: Colors.white,
-                    cardChild: ReusableIconCard(
-                        mainColor: Colors.purple,
-                        secColor: Colors.deepPurple,
-                        icon: FontAwesomeIcons.mapMarkerAlt,
-                        text: 'Tracker'),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    ));
+        ));
   }
 }

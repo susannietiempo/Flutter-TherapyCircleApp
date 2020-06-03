@@ -29,7 +29,7 @@ class RoundedButton extends StatelessWidget {
           child: Text(
             title,
             style:
-                GoogleFonts.ptSansNarrow(color: textColor, fontSize: 17.0),
+                GoogleFonts.ptSansNarrow(color: textColor, fontSize: 17.0, fontWeight: FontWeight.bold),
           ),
           
         ),

@@ -43,7 +43,7 @@ class ReusableIconCard extends StatelessWidget {
           style: GoogleFonts.ptSansNarrow(
             fontSize: 16,
             fontWeight: FontWeight.normal,
-            color: Color(0Xff46578f),
+            color: Color(0Xff3b3a3a),
           ),
         ),
       ],
