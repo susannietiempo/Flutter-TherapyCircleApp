@@ -3,7 +3,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 import 'package:therapy_cirlce_app/constants.dart';
 import 'package:therapy_cirlce_app/components/rounded_button.dart';
-import 'package:therapy_cirlce_app/screens/home_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:therapy_cirlce_app/screens/onboarding_screen_one.dart';
 import 'package:therapy_cirlce_app/components/rounded_textfield.dart';
