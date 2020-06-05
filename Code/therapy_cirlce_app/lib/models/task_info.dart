@@ -3,6 +3,7 @@ import 'dart:collection';
 import 'task.dart';
 
 class TaskData extends ChangeNotifier {
+  
   List<Task> _tasks = [
     Task(name: 'Send email to Ms. S'),
     Task(name: 'Update Proloqou'),

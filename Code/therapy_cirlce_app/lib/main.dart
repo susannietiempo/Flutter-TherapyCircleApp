@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:therapy_cirlce_app/screens/gallery_screen.dart';
 import 'package:therapy_cirlce_app/screens/location_screen.dart';
+import 'package:therapy_cirlce_app/screens/messaging_main_screen.dart';
 import 'package:therapy_cirlce_app/screens/therapy_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:therapy_cirlce_app/models/task_info.dart';
@@ -13,13 +14,17 @@ import 'package:therapy_cirlce_app/screens/onboarding_screen_two.dart';
 import 'package:therapy_cirlce_app/screens/registration_screen.dart';
 import 'package:therapy_cirlce_app/screens/todo_screen.dart';
 import 'package:therapy_cirlce_app/screens/welcome_screen.dart';
+import 'package:therapy_cirlce_app/screens/add_user.dart';
 
 
 
 
 void main() => runApp(TherapyCircle());
+  bool userIsLoggedIn;
+
 
 class TherapyCircle extends StatelessWidget {
+  
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
@@ -43,6 +48,8 @@ class TherapyCircle extends StatelessWidget {
           TherapyScreen.id: (context) => TherapyScreen(),
           TrackerScreen.id: (context) => TrackerScreen(),
           GalleryScreen.id: (context) => GalleryScreen(),
+          AddUser.id: (context) => AddUser(),
+          ConversationScreen.id: (context) => ConversationScreen(),
         },
       ),
     );

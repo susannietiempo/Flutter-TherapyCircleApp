@@ -4,43 +4,67 @@ import 'package:provider/provider.dart';
 import 'package:therapy_cirlce_app/screens/todo_add_task_screen.dart';
 import 'package:therapy_cirlce_app/widgets/task_list.dart';
 import 'package:therapy_cirlce_app/constants.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
-
 
 class ToDoScreen extends StatelessWidget {
-    static const String id = 'todo_screen';
+  static const String id = 'todo_screen';
 
   @override
   Widget build(BuildContext context) {
-     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.lightBlue,
-          actions: <Widget>[   Icon(FontAwesomeIcons.ellipsisV, color: Color(0xFF46578f),), Padding(padding: EdgeInsets.only(right:25),)],
-          title: Center(
-            child: Text(
-              'My Therapy To Do\'s',
-              style: kappBarText,
+    return Scaffold(
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(80.0),
+        child: AppBar(
+          automaticallyImplyLeading: false,
+          elevation: 15,
+          flexibleSpace: SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.only(top: 15.0, right: 10, left: 15),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  IconButton(
+                    onPressed: () => Navigator.pop(context),
+                    icon: Icon(Icons.arrow_back, color: Colors.white),
+                  ),
+                  SizedBox(
+                    width: 30,
+                  ),
+                  CircleAvatar(
+                    radius: 25,
+                    backgroundImage: ExactAssetImage(
+                        'images/logo_circle_yellow.png',
+                        scale: 1.0),
+                  ),
+                  SizedBox(
+                    width: 20,
+                  ),
+                  Text(
+                    'My To Do\'s',
+                    style: kHeadingText,
+                  ),
+                ],
+              ),
             ),
           ),
         ),
-      backgroundColor: Colors.lightBlue,
+      ),
+      backgroundColor: Colors.blue[100],
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.deepPurple,
-        child: Icon(Icons.add),
+          child: Icon(Icons.add),
           onPressed: () {
             showModalBottomSheet(
-                context: context,
-                isScrollControlled: true,
-                builder: (context) => SingleChildScrollView(
-                    child:Container(
-                      padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
-                      child: AddTaskScreen(),
-                    )
-                )
+              context: context,
+              isScrollControlled: true,
+              builder: (context) => SingleChildScrollView(
+                child: Container(
+                  padding: EdgeInsets.only(
+                      bottom: MediaQuery.of(context).viewInsets.bottom),
+                  child: AddTaskScreen(),
+                ),
+              ),
             );
-          }
-      ),
+          }),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -53,13 +77,13 @@ class ToDoScreen extends StatelessWidget {
                 SizedBox(
                   height: 10.0,
                 ),
-
-                 SizedBox(
+                SizedBox(
                   height: 10.0,
                 ),
                 Text(
                   'You have ${Provider.of<TaskData>(context).taskCount} active tasks',
-                  style: kappBarText.copyWith(fontSize: 18, color: Colors.white),
+                  style: kappBarText.copyWith(
+                      fontSize: 20, color: Color(0xFF3b3a3a)),
                 ),
               ],
             ),
@@ -70,8 +94,8 @@ class ToDoScreen extends StatelessWidget {
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(20.0),
-                  topRight: Radius.circular(20.0),
+                  topLeft: Radius.circular(15.0),
+                  topRight: Radius.circular(15.0),
                 ),
               ),
               child: TasksList(),

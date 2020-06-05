@@ -3,13 +3,17 @@ import 'package:therapy_cirlce_app/components/reusable_card.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:therapy_cirlce_app/components/reusable_icon_card.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:therapy_cirlce_app/constants.dart';
+import 'package:therapy_cirlce_app/screens/add_user.dart';
 import 'package:therapy_cirlce_app/screens/calendar.dart';
 import 'package:therapy_cirlce_app/screens/gallery_screen.dart';
 import 'package:therapy_cirlce_app/screens/location_screen.dart';
 import 'package:therapy_cirlce_app/screens/messaging_screen.dart';
 import 'package:therapy_cirlce_app/screens/therapy_screen.dart';
 import 'package:therapy_cirlce_app/screens/todo_screen.dart';
+import 'package:therapy_cirlce_app/screens/welcome_screen.dart';
+import 'package:therapy_cirlce_app/services/authentication.dart';
+import 'package:therapy_cirlce_app/constants.dart';
+import 'package:therapy_cirlce_app/widgets/helper_functions.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String id = 'home_screen';
@@ -19,13 +23,20 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  AuthService authService = new AuthService();
+
+
+  getUserInfo() async{
+    Constants.myFirstName =  await HelperFunctions.getFirstNameSharedPreference();  
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(80.0),
           child: AppBar(
-            elevation: 4.0,
+            elevation: 15.0,
             automaticallyImplyLeading: false,
             flexibleSpace: SafeArea(
               child: Padding(
@@ -35,13 +46,14 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: <Widget>[
                     Container(
                       child: CircleAvatar(
-                          radius: 25,
-                          backgroundImage:
-                              ExactAssetImage('images/zach.jpg', scale: 1.0),
-                        ),
+                        radius: 25,
+                        backgroundImage: ExactAssetImage(
+                            'images/logo_circle_yellow.png',
+                            scale: 1.0),
+                      ),
                     ),
                     Expanded(
-                                          child: Center(
+                      child: Center(
                         child: Text(
                           'My Circle',
                           style: GoogleFonts.ptSans(
@@ -53,9 +65,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     IconButton(
-                        icon: Icon(FontAwesomeIcons.cog, color: Colors.white),
+                        icon: Icon(FontAwesomeIcons.signOutAlt, color: Colors.grey[350]),
                         onPressed: () {
-                          Navigator.pop(context);
+                          authService.signOut();
+                          HelperFunctions.clearPreferences();
+                          HelperFunctions.saveUserLoggedInSharedPreference(false);
+                          Navigator.pushNamed(context, WelcomeScreen.id);
                         }),
                   ],
                 ),
@@ -70,12 +85,38 @@ class _HomeScreenState extends State<HomeScreen> {
             children: <Widget>[
               Expanded(
                 flex: 5,
-                child: ReusableCard(
-                    onPress: () {
-                      setState(() {});
-                    },
-                    colour: Color(0xfff0dfd1),
-                    cardChild: Image.asset('images/homeimage.png')),
+                child: Stack(
+                  children: <Widget>[
+                    ReusableCard(
+                      onPress: () {
+                        setState(() {});
+                      },
+                      colour: Color(0xfff0dfd1),
+                      cardChild: Image.asset('images/homeimage.png'),
+                    ),
+                    Positioned(
+                      right: 30.0,
+                      bottom: 20.0,
+                      child: GestureDetector(
+                        child: Container(
+                          width: 50.0,
+                          decoration: BoxDecoration(
+                            color: Color(0xffcf5e74),
+                            shape: BoxShape.circle,
+                          ),
+                          child: Icon(
+                            Icons.add,
+                            size: 30.0,
+                            color: Colors.white,
+                          ),
+                        ),
+                        onTap: () {
+                          Navigator.pushNamed(context, AddUser.id);
+                        },
+                      ),
+                    ),
+                  ],
+                ),
               ),
               Expanded(
                 flex: 3,
@@ -197,3 +238,4 @@ class _HomeScreenState extends State<HomeScreen> {
         ));
   }
 }
+

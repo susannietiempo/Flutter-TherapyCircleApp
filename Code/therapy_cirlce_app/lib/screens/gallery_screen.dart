@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:therapy_cirlce_app/constants.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:therapy_cirlce_app/services/database.dart';
+
+
 
 class GalleryScreen extends StatefulWidget {
   static const String id = 'gallery_screen';
@@ -10,43 +12,57 @@ class GalleryScreen extends StatefulWidget {
 }
 
 class _GalleryScreenState extends State<GalleryScreen> {
+  
+ DatabaseMethods dbMethods = new DatabaseMethods();
+ 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.indigo,
-        actions: <Widget>[
-          Icon(FontAwesomeIcons.ellipsisV),
-        ],
-        title: Center(
-          child: Text(
-            'Gallery',
-            style: kappBarText,
+      appBar:  PreferredSize(
+        preferredSize: Size.fromHeight(80.0),
+        child: AppBar(
+          automaticallyImplyLeading: false,
+          elevation: 15,
+          flexibleSpace: SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.only(top: 15.0, right: 10, left: 15),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  IconButton(
+                    onPressed: () => Navigator.pop(context),
+                    icon: Icon(Icons.arrow_back, color: Colors.white),
+                  ),
+                  SizedBox(
+                    width: 30,
+                  ),
+                  CircleAvatar(
+                    radius: 25,
+                    backgroundImage: ExactAssetImage(
+                        'images/logo_circle_yellow.png',
+                        scale: 1.0),
+                  ),
+                  SizedBox(
+                    width: 20,
+                  ),
+                  Text(
+                    'My Gallery',
+                    style: kHeadingText,
+                  ),
+                ],
+              ),
+            ),
           ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
-          backgroundColor: Colors.deepPurple,
-          child: Icon(Icons.add),
-          onPressed: () {}),
-      body: Padding(
-        padding: const EdgeInsets.only(top: 20.0),
-        child: Column(
-          children: <Widget>[
-            Container(
-              child: Center(
-                child: Text(
-                  'Therapy Moments',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
-                ),
-              ),
-            ),
-            //THIS IS A PLACE HOLDER ONLY
-            //TO DO: Implement Calendar functionality
-            Expanded(child: Image.asset('images/gallery.jpg'),)
-          ],
-        ),
-      ),
+          child: Icon(Icons.add_a_photo),
+          onPressed: () {
+
+
+          }),
+      body: Container(),
     );
   }
 }

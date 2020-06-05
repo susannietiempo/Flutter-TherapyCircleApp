@@ -8,17 +8,21 @@ class RoundedTextFieldState extends StatelessWidget {
       this.obsecure = false,
       this.validator,
       this.onSaved,
-      this.color});
+      this.color,
+      this.controller});
   final FormFieldSetter<String> onSaved;
   final Icon icon;
   final String hint;
   final bool obsecure;
   final FormFieldValidator<String> validator;
   final Color color;
+  final TextEditingController controller;
   @override
   Widget build(BuildContext context) {
     return Container(
       child: TextFormField(
+        
+        controller: controller,
         onSaved: onSaved,
         validator: validator,
         autofocus: true,

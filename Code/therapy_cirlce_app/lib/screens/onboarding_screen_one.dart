@@ -61,7 +61,7 @@ class OnboardingScreen1 extends StatelessWidget {
                 borderColor: Color(0xFF3b3a3a),
                 textColor: Color(0XFFFFFFFF),
                 onPressed: () {
-                  Navigator.pushNamed(context, OnboardingScreen2.id);
+                  Navigator.pushReplacementNamed(context, OnboardingScreen2.id);
                 },
               ),
             ),
