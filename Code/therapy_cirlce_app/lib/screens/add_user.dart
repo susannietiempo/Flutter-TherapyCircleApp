@@ -58,7 +58,7 @@ class _AddUserState extends State<AddUser> {
       };
 
       databaseMethods.addChatRoom(chatRoom, chatRoomId);
-     _showAuthFailedDialog();
+      _showAuthFailedDialog();
     }
   }
 
@@ -133,23 +133,29 @@ class _AddUserState extends State<AddUser> {
         : Container();
   }
 
-void _showAuthFailedDialog() {
+  void _showAuthFailedDialog() {
     showDialog(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: new Text('Successful!!',  style: GoogleFonts.ptSans(
-                          fontSize: 25,
-                          color: Color(0XFFcf5e74),
-                          fontWeight: FontWeight.w800,
-                          decoration: TextDecoration.none,
-                        ),),
-          content: new Text('You have added a new member to your circle.', style: GoogleFonts.ptSans(
-                          fontSize: 15,
-                          color: Colors.blueGrey,
-                          fontWeight: FontWeight.w800,
-                          decoration: TextDecoration.none,
-                        ),),
+          title: new Text(
+            'Successful!!',
+            style: GoogleFonts.ptSans(
+              fontSize: 25,
+              color: Color(0XFFcf5e74),
+              fontWeight: FontWeight.w800,
+              decoration: TextDecoration.none,
+            ),
+          ),
+          content: new Text(
+            'You have added a new member to your circle.',
+            style: GoogleFonts.ptSans(
+              fontSize: 15,
+              color: Colors.blueGrey,
+              fontWeight: FontWeight.w800,
+              decoration: TextDecoration.none,
+            ),
+          ),
           actions: <Widget>[
             new FlatButton(
               child: new Text('Close'),
@@ -292,5 +298,3 @@ getChatRoomId(String a, String b) {
     return "$a\_$b";
   }
 }
-
-

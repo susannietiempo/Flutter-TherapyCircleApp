@@ -8,14 +8,12 @@ import 'package:therapy_cirlce_app/models/task_info.dart';
 import 'package:therapy_cirlce_app/screens/calendar.dart';
 import 'package:therapy_cirlce_app/screens/home_screen.dart';
 import 'package:therapy_cirlce_app/screens/login_screen.dart';
-import 'package:therapy_cirlce_app/screens/messaging_screen.dart';
 import 'package:therapy_cirlce_app/screens/onboarding_screen_one.dart';
 import 'package:therapy_cirlce_app/screens/onboarding_screen_two.dart';
 import 'package:therapy_cirlce_app/screens/registration_screen.dart';
 import 'package:therapy_cirlce_app/screens/todo_screen.dart';
 import 'package:therapy_cirlce_app/screens/welcome_screen.dart';
 import 'package:therapy_cirlce_app/screens/add_user.dart';
-import 'package:therapy_cirlce_app/screens/pactice.dart';
 import 'package:therapy_cirlce_app/screens/chats.dart';
 import 'package:therapy_cirlce_app/widgets/helper_functions.dart';
 
@@ -27,7 +25,7 @@ class TherapyCircle extends StatefulWidget {
 }
 
 class _TherapyCircleState extends State<TherapyCircle> {
-  bool userIsLoggedIn;
+  bool userIsLoggedIn = false;
 
   @override
   void initState() {
@@ -58,7 +56,6 @@ class _TherapyCircleState extends State<TherapyCircle> {
           WelcomeScreen.id: (context) => WelcomeScreen(),
           LoginScreen.id: (context) => LoginScreen(),
           RegistrationScreen.id: (context) => RegistrationScreen(),
-          MessagingScreen.id: (context) => MessagingScreen(),
           OnboardingScreen1.id: (context) => OnboardingScreen1(),
           OnboardingScreen2.id: (context) => OnboardingScreen2(),
           HomeScreen.id: (context) => HomeScreen(),
@@ -70,7 +67,6 @@ class _TherapyCircleState extends State<TherapyCircle> {
           AddUser.id: (context) => AddUser(),
           ChatRoom.id: (context) => ChatRoom(),
           Chat.id: (context) => Chat(),
-
 
         },
       ),

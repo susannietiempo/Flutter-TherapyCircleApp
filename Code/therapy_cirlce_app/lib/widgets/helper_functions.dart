@@ -68,7 +68,10 @@ class HelperFunctions {
   static Future<bool> clearPreferences() async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
     return  preferences.clear();
+
   }
+
+
 
 
 }

@@ -1,20 +1,10 @@
-import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:therapy_cirlce_app/constants.dart';
-import 'package:therapy_cirlce_app/screens/messaging_main_screen.dart';
-import 'package:therapy_cirlce_app/screens/messaging_screen.dart';
-import 'package:therapy_cirlce_app/screens/welcome_screen.dart';
-import 'package:therapy_cirlce_app/services/authentication.dart';
-import 'package:therapy_cirlce_app/screens/search_user.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:therapy_cirlce_app/services/database.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:therapy_cirlce_app/widgets/helper_functions.dart';
-import 'package:therapy_cirlce_app/constants.dart';
 
 class Chat extends StatefulWidget {
   static const String id = 'chats2_screen';

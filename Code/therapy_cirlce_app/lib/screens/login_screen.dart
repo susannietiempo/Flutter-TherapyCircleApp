@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 import 'package:therapy_cirlce_app/constants.dart';
 import 'package:therapy_cirlce_app/components/rounded_button.dart';
 import 'package:therapy_cirlce_app/screens/home_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:therapy_cirlce_app/components/rounded_textfield.dart';
-import 'package:therapy_cirlce_app/screens/onboarding_screen_one.dart';
 import 'package:therapy_cirlce_app/services/authentication.dart';
 import 'package:therapy_cirlce_app/widgets/helper_functions.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -54,7 +52,9 @@ class _LoginScreenState extends State<LoginScreen> {
               emailController.text.trim(), passwordController.text.trim())
           .then((val) {
         if (val != null) {
+          setState(() {
           HelperFunctions.saveUserLoggedInSharedPreference(true);
+          });
           Navigator.pushReplacementNamed(context, HomeScreen.id);
         } else {
           setState(() {

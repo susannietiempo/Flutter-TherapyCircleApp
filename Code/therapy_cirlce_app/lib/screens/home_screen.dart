@@ -7,14 +7,10 @@ import 'package:therapy_cirlce_app/screens/add_user.dart';
 import 'package:therapy_cirlce_app/screens/calendar.dart';
 import 'package:therapy_cirlce_app/screens/gallery_screen.dart';
 import 'package:therapy_cirlce_app/screens/location_screen.dart';
-import 'package:therapy_cirlce_app/screens/messaging_screen.dart';
 import 'package:therapy_cirlce_app/screens/therapy_screen.dart';
 import 'package:therapy_cirlce_app/screens/todo_screen.dart';
-import 'package:therapy_cirlce_app/screens/pactice.dart';
-
 import 'package:therapy_cirlce_app/screens/welcome_screen.dart';
 import 'package:therapy_cirlce_app/services/authentication.dart';
-import 'package:therapy_cirlce_app/constants.dart';
 import 'package:therapy_cirlce_app/widgets/helper_functions.dart';
 import 'package:therapy_cirlce_app/screens/messaging_main_screen.dart';
 
@@ -69,7 +65,6 @@ class _HomeScreenState extends State<HomeScreen> {
                         icon: Icon(FontAwesomeIcons.signOutAlt, color: Colors.grey[350]),
                         onPressed: () {
                           authService.signOut();
-                          HelperFunctions.clearPreferences();
                           HelperFunctions.saveUserLoggedInSharedPreference(false);
                           Navigator.pushNamed(context, WelcomeScreen.id);
                         }),
