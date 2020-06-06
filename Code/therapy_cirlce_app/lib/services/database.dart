@@ -1,4 +1,3 @@
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class DatabaseMethods {
@@ -33,7 +32,6 @@ class DatabaseMethods {
     });
   }
 
-
   Future<bool> addTaskDocument(email, taskList) {
     Firestore.instance
         .collection("tasks")
@@ -44,19 +42,67 @@ class DatabaseMethods {
     });
   }
 
-  updateTask(email, taskList)  {
-    Firestore.instance.collection("tasks")..document(email).updateData({'task': taskList});
+  updateTask(email, taskList) {
+    Firestore.instance.collection("tasks")
+      ..document(email).updateData({'task': taskList});
   }
 
-
-
-  getTasks(String email) async => Firestore.instance
-          .collection("tasks")
-          .where("email", isEqualTo: email)
-          .getDocuments()
-          .catchError((e) {
+  getTasks() async =>
+      Firestore.instance.collection("tasks").getDocuments().catchError((e) {
         print(e.toString());
       });
 
-  
-}
+  getChats(String chatRoomId) async {
+    return Firestore.instance
+        .collection("chatRoom")
+        .document(chatRoomId)
+        .collection("chats")
+        .orderBy('time')
+        .snapshots();
+  }
+
+  getConversationMessages(String chatRoomId) async {
+    return Firestore.instance
+        .collection("chatRoom")
+        .document(chatRoomId)
+        .collection("chats")
+        .orderBy("time", descending: false)
+        .snapshots();
+  }
+
+  addConversationMessages(String chatRoomId, messageMap) async {
+    return Firestore.instance
+        .collection("chatRoom")
+        .document(chatRoomId)
+        .collection("chats")
+        .add(messageMap)
+        .catchError((e) {
+      print(e.toString());
+    });
+  }
+
+  Future<void> addMessage(String chatRoomId, chatMessageData) {
+    Firestore.instance
+        .collection("chatRoom")
+        .document(chatRoomId)
+        .collection("chats")
+        .add(chatMessageData)
+        .catchError((e) {
+      print(e.toString());
+    });
+  }
+
+  getUserChats(String itIsMyName) async {
+    return Firestore.instance
+        .collection("chatRoom")
+        .where('users', arrayContains: itIsMyName)
+        .snapshots();
+  }
+
+  getChatRooms(String email) {
+    return Firestore.instance
+        .collection("chatRoom")
+        .where('users', arrayContains: email)
+        .snapshots();
+  }
+} //end db

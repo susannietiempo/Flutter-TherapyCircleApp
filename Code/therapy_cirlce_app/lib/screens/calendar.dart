@@ -197,7 +197,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
                         style: GoogleFonts.ptSans(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
-                          color: Color(0XFF545454),
+                          color: Color(0XFFcf5e74),
                         ),
                       ),
                     ),

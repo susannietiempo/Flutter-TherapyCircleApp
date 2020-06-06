@@ -1,19 +1,22 @@
 import 'package:flutter/foundation.dart';
 import 'dart:collection';
 import 'task.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:therapy_cirlce_app/services/database.dart';
+
+
 
 class TaskData extends ChangeNotifier {
-  
-  List<Task> _tasks = [
-    Task(name: 'Send email to Ms. S'),
-    Task(name: 'Update Proloqou'),
-    Task(name: 'Give Nisha update about dentist'),
+ List<Task> _tasks = [
+    Task(name: 'Buy milk'),
+    Task(name: 'Buy eggs'),
+    Task(name: 'Buy bread'),
   ];
-
+  
   UnmodifiableListView<Task> get tasks {
     return UnmodifiableListView(_tasks);
   }
-
+  
   int get taskCount {
     return _tasks.length;
   }
@@ -33,4 +36,12 @@ class TaskData extends ChangeNotifier {
     _tasks.remove(task);
     notifyListeners();
   }
+
+  
+  
 }
+
+
+
+
+

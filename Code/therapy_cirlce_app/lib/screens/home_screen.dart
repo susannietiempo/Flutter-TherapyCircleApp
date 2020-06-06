@@ -10,10 +10,14 @@ import 'package:therapy_cirlce_app/screens/location_screen.dart';
 import 'package:therapy_cirlce_app/screens/messaging_screen.dart';
 import 'package:therapy_cirlce_app/screens/therapy_screen.dart';
 import 'package:therapy_cirlce_app/screens/todo_screen.dart';
+import 'package:therapy_cirlce_app/screens/pactice.dart';
+
 import 'package:therapy_cirlce_app/screens/welcome_screen.dart';
 import 'package:therapy_cirlce_app/services/authentication.dart';
 import 'package:therapy_cirlce_app/constants.dart';
 import 'package:therapy_cirlce_app/widgets/helper_functions.dart';
+import 'package:therapy_cirlce_app/screens/messaging_main_screen.dart';
+
 
 class HomeScreen extends StatefulWidget {
   static const String id = 'home_screen';
@@ -25,10 +29,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   AuthService authService = new AuthService();
 
-
-  getUserInfo() async{
-    Constants.myFirstName =  await HelperFunctions.getFirstNameSharedPreference();  
-  }
+  
 
   @override
   Widget build(BuildContext context) {
@@ -142,7 +143,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: ReusableCard(
                         onPress: () {
                           setState(() {
-                            Navigator.pushNamed(context, MessagingScreen.id);
+                            Navigator.pushNamed(context, ChatRoom.id);
                           });
                         },
                         colour: Colors.white,

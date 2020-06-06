@@ -33,13 +33,9 @@ class _LoginScreenState extends State<LoginScreen> {
   QuerySnapshot snapshotUserInfo;
 
   signIn() async {
-    
     if (_formKey.currentState.validate()) {
       HelperFunctions.saveUserEmailSharedPreference(
           emailController.text.trim());
-      setState(() {
-        showSpinner = true;
-      });
 
       dbMethods.getUserByEmail(emailController.text.trim()).then((val) {
         snapshotUserInfo = val;
@@ -48,6 +44,9 @@ class _LoginScreenState extends State<LoginScreen> {
         HelperFunctions.saveFirstNameSharedPreference(fname);
         HelperFunctions.saveLastNameSharedPreference(
             snapshotUserInfo.documents[0].data["lastName"]);
+      });
+      setState(() {
+        showSpinner = true;
       });
 
       authService
@@ -72,8 +71,24 @@ class _LoginScreenState extends State<LoginScreen> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: new Text('Could not log in'),
-          content: new Text('Double check your credentials and try again'),
+          title: new Text(
+            'Could not log in',
+            style: GoogleFonts.ptSans(
+              fontSize: 25,
+              color: Color(0XFFcf5e74),
+              fontWeight: FontWeight.w800,
+              decoration: TextDecoration.none,
+            ),
+          ),
+          content: new Text(
+            'Double check your credentials and try again',
+            style: GoogleFonts.ptSans(
+              fontSize: 15,
+              color: Colors.blueGrey,
+              fontWeight: FontWeight.w800,
+              decoration: TextDecoration.none,
+            ),
+          ),
           actions: <Widget>[
             new FlatButton(
               child: new Text('Close'),
@@ -86,6 +101,7 @@ class _LoginScreenState extends State<LoginScreen> {
       },
     );
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

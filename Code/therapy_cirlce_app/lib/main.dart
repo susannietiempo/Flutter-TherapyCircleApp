@@ -15,23 +15,42 @@ import 'package:therapy_cirlce_app/screens/registration_screen.dart';
 import 'package:therapy_cirlce_app/screens/todo_screen.dart';
 import 'package:therapy_cirlce_app/screens/welcome_screen.dart';
 import 'package:therapy_cirlce_app/screens/add_user.dart';
-
-
-
+import 'package:therapy_cirlce_app/screens/pactice.dart';
+import 'package:therapy_cirlce_app/screens/chats.dart';
+import 'package:therapy_cirlce_app/widgets/helper_functions.dart';
 
 void main() => runApp(TherapyCircle());
+
+class TherapyCircle extends StatefulWidget {
+  @override
+  _TherapyCircleState createState() => _TherapyCircleState();
+}
+
+class _TherapyCircleState extends State<TherapyCircle> {
   bool userIsLoggedIn;
 
+  @override
+  void initState() {
+      getLoggedInState();
+      print(userIsLoggedIn);
+    super.initState();
+  }
 
-class TherapyCircle extends StatelessWidget {
-  
+  getLoggedInState() async {
+    await HelperFunctions.getUserLoggedInSharedPreference().then((value){
+      setState(() {
+        userIsLoggedIn  = value;
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (context) => TaskData(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: WelcomeScreen.id,
+        initialRoute: userIsLoggedIn ? HomeScreen.id : WelcomeScreen.id,
         theme: ThemeData.light().copyWith(
           primaryColor: Color(0xFF5271fe),
         ),
@@ -49,7 +68,10 @@ class TherapyCircle extends StatelessWidget {
           TrackerScreen.id: (context) => TrackerScreen(),
           GalleryScreen.id: (context) => GalleryScreen(),
           AddUser.id: (context) => AddUser(),
-          ConversationScreen.id: (context) => ConversationScreen(),
+          ChatRoom.id: (context) => ChatRoom(),
+          Chat.id: (context) => Chat(),
+
+
         },
       ),
     );
