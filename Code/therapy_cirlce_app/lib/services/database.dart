@@ -52,15 +52,6 @@ class DatabaseMethods {
         print(e.toString());
       });
 
-  getChats(String chatRoomId) async {
-    return Firestore.instance
-        .collection("chatRoom")
-        .document(chatRoomId)
-        .collection("chats")
-        .orderBy('time')
-        .snapshots();
-  }
-
   getConversationMessages(String chatRoomId) async {
     return Firestore.instance
         .collection("chatRoom")
@@ -76,17 +67,6 @@ class DatabaseMethods {
         .document(chatRoomId)
         .collection("chats")
         .add(messageMap)
-        .catchError((e) {
-      print(e.toString());
-    });
-  }
-
-  Future<void> addMessage(String chatRoomId, chatMessageData) {
-    Firestore.instance
-        .collection("chatRoom")
-        .document(chatRoomId)
-        .collection("chats")
-        .add(chatMessageData)
         .catchError((e) {
       print(e.toString());
     });

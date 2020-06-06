@@ -1,23 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
-import 'package:therapy_cirlce_app/screens/gallery_screen.dart';
-import 'package:therapy_cirlce_app/screens/location_screen.dart';
-import 'package:therapy_cirlce_app/screens/messaging_main_screen.dart';
-import 'package:therapy_cirlce_app/screens/therapy_screen.dart';
-import 'package:provider/provider.dart';
-import 'package:therapy_cirlce_app/models/task_info.dart';
-import 'package:therapy_cirlce_app/screens/calendar.dart';
-import 'package:therapy_cirlce_app/screens/home_screen.dart';
-import 'package:therapy_cirlce_app/screens/login_screen.dart';
-import 'package:therapy_cirlce_app/screens/messaging_screen.dart';
-import 'package:therapy_cirlce_app/screens/onboarding_screen_one.dart';
-import 'package:therapy_cirlce_app/screens/onboarding_screen_two.dart';
-import 'package:therapy_cirlce_app/screens/registration_screen.dart';
-import 'package:therapy_cirlce_app/screens/todo_screen.dart';
-import 'package:therapy_cirlce_app/screens/welcome_screen.dart';
 import 'package:therapy_cirlce_app/screens/add_user.dart';
-import 'package:therapy_cirlce_app/screens/pactice.dart';
-import 'package:therapy_cirlce_app/screens/practiceadd.dart';
 import 'package:therapy_cirlce_app/services/authentication.dart';
 import 'package:therapy_cirlce_app/constants.dart';
 import 'package:therapy_cirlce_app/services/database.dart';
@@ -31,7 +13,6 @@ import 'package:google_fonts/google_fonts.dart';
 
 class ChatRoom extends StatefulWidget {
     static const String id = 'conversation_screen';
-
 
   @override
   _ChatRoomState createState() => _ChatRoomState();
