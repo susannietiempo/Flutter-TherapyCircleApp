@@ -37,7 +37,7 @@ class _TherapyCircleState extends State<TherapyCircle> {
   getLoggedInState() async {
     await HelperFunctions.getUserLoggedInSharedPreference().then((value){
       setState(() {
-        userIsLoggedIn  = value;
+         (value == null) ? userIsLoggedIn  = false : userIsLoggedIn  = value;
       });
     });
   }
